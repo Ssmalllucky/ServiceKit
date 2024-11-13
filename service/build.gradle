@@ -1,0 +1,55 @@
+plugins {
+    alias(libs.plugins.android.library)
+}
+
+//版本号（改动条件：完全重构 或 重要功能的改动）
+def versionValue = "1"
+
+//固定号（改动条件：此AAR的任意调整）
+def fixValue = releaseTime()
+
+android {
+    namespace 'com.ssmalllucky.android.service'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 24
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk 28
+
+        versionName "$versionValue.$fixValue"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        ndk {
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    libraryVariants.configureEach { variant ->
+        variant.outputs.configureEach {outputs ->
+            outputFileName = "ServiceKit_V${defaultConfig.versionName}.aar"
+        }
+    }
+}
+
+static def releaseTime() {
+    return new Date().format("yyMMddHHmm", TimeZone.getTimeZone("GMT+8"))
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation libs.appcompat
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    compileOnly "com.google.zxing:core:3.3.3"
+}
