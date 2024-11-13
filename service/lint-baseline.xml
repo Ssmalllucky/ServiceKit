@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.7.1" type="baseline" client="gradle" dependencies="false" name="AGP (8.7.1)" variant="all" version="8.7.1">
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="            mime = mimeTypes().get(uri.substring(dot + 1).toLowerCase());"
+        errorLine2="                                                          ~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/ssmalllucky/android/service/nanohttpd/http/NanoHTTPD.java"
+            line="296"
+            column="59"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="            lowerCaseHeader.put(key == null ? key : key.toLowerCase(), value);"
+        errorLine2="                                                        ~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/ssmalllucky/android/service/nanohttpd/http/response/Response.java"
+            line="93"
+            column="57"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="        return this.lowerCaseHeader.get(name.toLowerCase());"
+        errorLine2="                                             ~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/ssmalllucky/android/service/nanohttpd/http/response/Response.java"
+            line="206"
+            column="46"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="            return getMimeType() != null &amp;&amp; (getMimeType().toLowerCase().contains(&quot;text/&quot;) || getMimeType().toLowerCase().contains(&quot;/json&quot;));"
+        errorLine2="                                                           ~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/ssmalllucky/android/service/nanohttpd/http/response/Response.java"
+            line="444"
+            column="60"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="            return getMimeType() != null &amp;&amp; (getMimeType().toLowerCase().contains(&quot;text/&quot;) || getMimeType().toLowerCase().contains(&quot;/json&quot;));"
+        errorLine2="                                                                                                            ~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/ssmalllucky/android/service/nanohttpd/http/response/Response.java"
+            line="444"
+            column="109"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="Suspicious indentation: This is conditionally executed; expected it to be indented"
+        errorLine1="            previewSize = w * 1.0f / h > 1.0f ? new int[] {width , height} : new int[] {height, height};"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/ssmalllucky/android/service/ocr/scanner/ScannerView.java"
+            line="892"
+            column="13"/>
+        <location
+            file="src/main/java/com/ssmalllucky/android/service/ocr/scanner/ScannerView.java"
+            line="891"
+            column="13"
+            message="Previous statement here"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="Unnecessary; SDK_INT is always >= 24"
+        errorLine1="        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 &amp;&amp; context != null) {"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/ssmalllucky/android/service/ocr/scanner/NV21.java"
+            line="24"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="Unnecessary; SDK_INT is always >= 24"
+        errorLine1="        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 &amp;&amp; rs != null &amp;&amp; yuvToRgbIntrinsic != null) {"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/ssmalllucky/android/service/ocr/scanner/NV21.java"
+            line="39"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="Unnecessary; SDK_INT is always >= 24"
+        errorLine1="                        final String s = android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT ? new String(sym.getDataBytes(), StandardCharsets.UTF_8) : sym.getData();"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/ssmalllucky/android/service/ocr/scanner/ScannerView.java"
+            line="154"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="ViewConstructor"
+        message="Custom view `CameraPreview` is missing constructor used by tools: `(Context)` or `(Context,AttributeSet)` or `(Context,AttributeSet,int)`"
+        errorLine1="class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {"
+        errorLine2="      ~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/ssmalllucky/android/service/ocr/scanner/CameraPreview.java"
+            line="18"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="UseTomlInstead"
+        message="Use version catalog instead"
+        errorLine1="    compileOnly &quot;com.google.zxing:core:3.3.3&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="40"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="ClickableViewAccessibility"
+        message="Custom view `CameraPreview` overrides `onTouchEvent` but not `performClick`"
+        errorLine1="    public boolean onTouchEvent(MotionEvent event) {"
+        errorLine2="                   ~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/ssmalllucky/android/service/ocr/scanner/CameraPreview.java"
+            line="70"
+            column="20"/>
+    </issue>
+
+</issues>
